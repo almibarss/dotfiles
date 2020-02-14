@@ -1,0 +1,25 @@
+BOLD=$(tput bold)
+RED=$(tput setaf 1)
+RESET=$(tput sgr0)
+
+CHECK_MARK="*"
+
+brew_packages() {
+	local outdated
+	outdated=$(brew outdated | awk '{print "___"$1"___"}')
+	for pkg in $(brew ls); do
+		if [[ $outdated =~ "___${pkg//+/\+}___" ]]; then
+			echo "${pkg}${BOLD}${RED}${CHECK_MARK}${RESET}"
+		else
+			echo $pkg
+		fi
+	done
+}
+
+brew_packages |
+fzf \
+	--ansi \
+	--multi \
+	--preview "brew ls \$(tr -d \"$CHECK_MARK\" <<<{})" \
+	--preview-window 'right:80%' |
+tr -d $CHECK_MARK

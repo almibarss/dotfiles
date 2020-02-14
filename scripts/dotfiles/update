@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+source ~/.dotfiles/scripts/core/log.sh
+source ~/.dotfiles/scripts/git/utils.sh
+
+if [[ -z ${DOTFILES_NO_COLOR:-} ]]; then
+	GIT_LOG_FORMAT="%C(bold yellow)%h%Creset %<(60)%s %C(white)%ar%Creset"
+else
+	GIT_LOG_FORMAT="%h %<(60)%s %ar"
+fi
+
+local_changes() {
+	echo "↑ Local changes:"
+	git log --pretty="format:$GIT_LOG_FORMAT" @{u}..HEAD
+}
+
+remote_changes() {
+	echo "↓ Remote changes:"
+	git log --pretty="format:$GIT_LOG_FORMAT" HEAD..@{u}
+}
+
+cd ~/.dotfiles || exit
+echo "Checking for updates..."
+git fetch
+status=$(git_info)
+
+if [[ $status == behind ]]; then
+	remote_changes
+	warning "Needs update"
+	git pull
+elif [[ $status == ahead ]]; then
+	local_changes
+	read -ep "Push your local changes to the remote? [Y|n] " option
+	# https://stackoverflow.com/a/44109240
+	if [[ ${option,,} =~ ^(y|yes)?$ ]]; then
+		git push
+	fi
+elif [[ $status == diverged ]]; then
+	local_changes
+	remote_changes
+	error "Changes in both sides. Please update manually."
+else
+	success "Up to date"
+fi
+
+echo "Checking submodules..."
+git submodule init
+git submodule update
+git submodule status

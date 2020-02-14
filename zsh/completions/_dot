@@ -1,0 +1,49 @@
+#compdef dot
+
+SCRIPTS_HOME=~/.dotfiles/scripts
+SELF="dotfiles"
+
+_find_commands() {
+	local relative
+	for cmd in $(find "$SCRIPTS_HOME" ! -path "$SCRIPTS_HOME/os/*" -maxdepth 2 -perm +111 -type f); do
+		relative=${cmd#${SCRIPTS_HOME}/}
+		if [[ $relative =~ ^$SELF/ ]]; then
+			basename $relative
+		else
+			dirname $relative
+		fi
+	done
+}
+
+_list_topic() {
+	find "${SCRIPTS_HOME}/$1" -maxdepth 1 -perm +111 -type f | xargs -n 1 basename
+}
+
+_dot() {
+	local dot_commands
+	local curcontext="$curcontext" state line
+	typeset -A opt_args
+
+	_arguments \
+    "(: -)--help[Print usage]" \
+	'1: :->context' \
+	'2: :->command' \
+	'*: :->args'
+
+	dot_commands="$(_find_commands)"
+
+	case $state in
+		context)
+			_arguments "1:dot command:($dot_commands)"
+			;;
+		command)
+			existing_commands=$(_list_topic $words[2])
+			_arguments "2:$words[2] commands:($existing_commands)"
+			;;
+		*)
+			_files
+			;;
+	esac
+}
+
+_dot "@"

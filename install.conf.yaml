@@ -1,0 +1,38 @@
+---
+- defaults:
+    link:
+      relink: true
+      create: true
+    shell:
+      stdin: true
+      stdout: true
+      stderr: true
+
+- link:
+    ~/.dotfiles:
+      if: '[[ $PWD != ${HOME}/.dotfiles ]]'
+      path: ''
+    ${XDG_CONFIG_HOME}/vim/config: vim/config
+    ${XDG_CONFIG_HOME}/vim/plugins.vim: vim/plugins.vim
+    ${DOTFILES_HOME}/modules/vim-plug/autoload/plug.vim: modules/vim-plug/plug.vim
+    ${XDG_CONFIG_HOME}/bat/config: zsh/bat/config
+    ${XDG_CONFIG_HOME}/ripgrep/config: zsh/ripgrep/config
+    ${XDG_CONFIG_HOME}/git/config: git/config
+    ${XDG_CONFIG_HOME}/git/ignore: git/ignore
+    ${XDG_CONFIG_HOME}/zsh/.zshrc: zsh/config
+    ${XDG_CONFIG_HOME}/zsh/.zimrc: zsh/zim/config
+    ${XDG_CONFIG_HOME}/shellcheckrc: zsh/shellcheck/config
+    ~/.zshenv: zsh/zshenv
+
+- create:
+    - ~/.hushlogin
+    - ~/.dotfiles/local
+    - ${XDG_CACHE_HOME}/vim
+    - ${XDG_CACHE_HOME}/zsh
+    - ${XDG_DATA_HOME}/zsh
+
+- shell:
+    - [scripts/os/install.sh, '⚡️  OS packages']
+    - [zsh/install_plugins.sh, '⚡️  Zsh plugins']
+    - [vim/install_plugins.sh, '⚡️  Vim plugins']
+    - [git/setup.sh, '⚡️  Git setup']

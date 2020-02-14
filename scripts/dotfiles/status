@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+source ~/.dotfiles/scripts/git/utils.sh
+source ~/.dotfiles/scripts/core/colors.sh
+
+if [[ -z ${DOTFILES_NO_COLOR:-} ]]; then
+	GIT_LOG_FORMAT="%C(bold yellow)%h%Creset %<(60)%s %C(white)%ar%Creset"
+else
+	GIT_LOG_FORMAT="%h %<(60)%s %ar"
+fi
+
+colorize_status() {
+	local status=$1
+
+	set_colors stdout
+	sed \
+		-e "s,\(synced\),${GREEN}Up to date${RESET}," \
+		-e "s,\(behind\),${YELLOW}↓ Needs update${RESET}," \
+		-e "s,\(ahead\),${YELLOW}↑ Local changes${RESET}," \
+		-e "s,\(diverged\),${RED}↓↑ \1${RESET}," \
+		<<<$status
+}
+
+cd ~/.dotfiles || exit
+
+echo "DOTFILES REPO:"
+git log -1 --pretty="format:$GIT_LOG_FORMAT"
+echo -n "Status: "
+colorize_status $(git_info)
+
+export -f colorize_status
+export GIT_LOG_FORMAT
+echo
+echo "SUBMODULES:"
+git submodule foreach '
+	source ~/.dotfiles/scripts/git/utils.sh
+	source ~/.dotfiles/scripts/core/colors.sh
+	git log -1 --pretty="format:$GIT_LOG_FORMAT"
+	printf "Status: "
+	colorize_status $(git_info)
+'

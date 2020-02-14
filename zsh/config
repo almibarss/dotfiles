@@ -1,0 +1,64 @@
+# vi: ft=zsh
+
+FUNCTIONS_DIR=~/.dotfiles/zsh/functions
+COMPLETIONS_DIR=~/.dotfiles/zsh/completions
+
+[[ -e ${XDG_CONFIG_HOME}/zsh/zprof ]] && zmodload zsh/zprof
+
+zstyle ':zim:completion' dumpfile ${XDG_CACHE_HOME}/zsh/zcompdump
+
+fpath=($FUNCTIONS_DIR $COMPLETIONS_DIR $fpath)
+for func in $FUNCTIONS_DIR/* $COMPLETIONS_DIR/*; do
+	autoload -Uz ${func:t}
+done
+
+# Zim
+
+source ${ZIM_HOME}/init.zsh
+
+# History
+
+HISTFILE=${XDG_DATA_HOME}/zsh/history
+HISTSIZE=100000
+SAVEHIST=$HISTSIZE
+setopt NO_HIST_VERIFY
+setopt HIST_FCNTL_LOCK
+
+# Prompt for spelling correction of commands
+setopt CORRECT
+# Customize spelling correction prompt
+SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
+
+# Remove path separator from WORDCHARS
+WORDCHARS=${WORDCHARS//[\/]}
+
+# Completion
+
+zstyle ':completion::complete:*' cache-path   "${XDG_CACHE_HOME}/zsh/zcompcache"
+zstyle ':completion:*'           special-dirs true
+
+# Misc
+
+# https://github.com/zsh-users/zsh/blob/ac0dcc9a63dc2a0edc62f8f1381b15b0b5ce5da3/NEWS#L37-L42
+zle_highlight+=(paste:none)
+
+SOURCE_FILES=(
+	~/.dotfiles/zsh/path.zsh
+	~/.dotfiles/zsh/alias.zsh
+	~/.dotfiles/zsh/env.zsh
+	~/.dotfiles/zsh/key-bindings.zsh
+	~/.dotfiles/zsh/fzf/env.zsh
+	~/.dotfiles/zsh/fzf/key-bindings.zsh
+	~/.dotfiles/zsh/autojump/init.zsh
+	~/.dotfiles/sdkman/init.zsh
+)
+
+for src_file in $SOURCE_FILES; do
+	source $src_file
+done
+
+# Local changes
+
+if [[ -r ~/.dotfiles/local/zshrc ]]; then
+	source ~/.dotfiles/local/zshrc
+fi

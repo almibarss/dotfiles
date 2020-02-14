@@ -1,0 +1,92 @@
+#!/usr/bin/env zsh
+
+set -euo pipefail
+
+SCRIPTS_HOME=~/.dotfiles/scripts
+SCRIPT_NAME=$(basename $0)
+SELF="dotfiles"
+
+declare -A COMMANDS
+
+scan_commands() {
+	local topic
+	for cmd in $(find "$SCRIPTS_HOME" ! -path "$SCRIPTS_HOME/os/*" -maxdepth 2 -perm +111 -type f); do
+		topic=$(basename $(dirname $cmd))
+		COMMANDS[$topic]+=":$cmd"
+	done
+}
+
+list_topic() {
+	local topic="$1"
+	echo -n ${COMMANDS[$topic]} |
+		tr ':' '\0' |
+		xargs -0 -n 1 basename |
+		sort |
+		xargs -n 1 echo " "
+}
+
+print_usage() {
+	echo "Usage: $SCRIPT_NAME COMMAND|TOPIC"
+	echo
+	echo "A dotfiles management tool"
+	echo
+
+	echo "Commands:"
+	list_topic $SELF
+	echo
+
+	echo "Topics:"
+	echo ${(k)COMMANDS} | xargs -n 1 | grep -v "^${SELF}$" | sort | xargs -n 1 echo " "
+}
+
+execute_command() {
+	local topic=$1 cmd=$2
+	shift 2
+	if [[ ! -x ${SCRIPTS_HOME}/${topic}/${cmd} ]]; then
+		echo "$SCRIPT_NAME: '${cmd}' is not a valid command for '${topic}'"
+		echo "See '$SCRIPT_NAME $topic --help'"
+		exit 1
+	fi
+
+	"${SCRIPTS_HOME}/${topic}/${cmd}" "$@"
+}
+
+match_topic() {
+	local topic=$1
+	[ ${COMMANDS[$topic]+_} ]
+}
+
+self_command() {
+	local cmd=$1
+	[[ -x ${SCRIPTS_HOME}/${SELF}/${cmd} ]]
+}
+
+scan_commands
+
+if (( $# == 0 )) ||
+	{ (( $# == 1 )) && [[ $1 =~ ^(-h|--help)$ ]] }; then
+
+	print_usage
+
+elif (( $# == 1 )) ||
+	{ (( $# == 2 )) && [[ $2 =~ ^(-h|--help)$ ]] }; then
+
+	if self_command $1; then
+		execute_command $SELF $1 $@
+	elif match_topic $1; then
+		echo "$1 commands:"
+		list_topic $1
+	else
+		echo "${SCRIPT_NAME}: unknown topic or command '$1'"
+		echo "See '${SCRIPT_NAME} --help'"
+		exit 1
+	fi
+
+else
+
+	 topic="$1"
+	 cmd="$2"
+	 shift 2
+	 execute_command $topic $cmd $@
+
+fi

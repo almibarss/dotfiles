@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+vim \
+	"+au BufWritePost <buffer> PlugInstall" \
+	"${XDG_CONFIG_HOME:-${HOME}/.config}/vim/plugins.vim"

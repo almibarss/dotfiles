@@ -1,0 +1,35 @@
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/core"
+brew "autojump"               # https://github.com/wting/autojump
+brew "bat"                    # https://github.com/sharkdp/bat
+brew "exa"                    # https://github.com/ogham/exa
+brew "fd"                     # https://github.com/sharkdp/fd
+brew "fzf"                    # https://github.com/junegunn/fzf
+brew "git"
+brew "git-delta"              # https://github.com/dandavison/delta
+brew "git-open"               # https://github.com/jeffreyiacono/git-open
+brew "httpie"                 # https://httpie.org/
+brew "jq"                     # https://github.com/stedolan/jq
+brew "mas"                    # https://github.com/mas-cli/mas
+brew "openssl"
+brew "ripgrep"                # https://github.com/BurntSushi/ripgrep
+brew "shellcheck"             # https://github.com/koalaman/shellcheck
+brew "aykamko/tag-ag/tag-ag"  # https://github.com/aykamko/tag
+brew "vim"
+brew "zsh"
+cask "alfred"                 # https://www.alfredapp.com/
+cask "docker"
+cask "font-jetbrains-mono"    # https://www.jetbrains.com/lp/mono/
+cask "google-chrome"
+cask "iterm2-nightly"
+cask "jetbrains-toolbox"
+cask "karabiner-elements"     # https://github.com/pqrs-org/Karabiner-Elements
+cask "qlmarkdown"
+cask "qlstephen"
+cask "quicklook-json"
+cask "slack"
+cask "spectacle"              # https://www.spectacleapp.com/
+cask "typora"                 # https://typora.io/
+cask "whatsapp"
+mas "Monosnap", id: 540348655 # https://monosnap.com/

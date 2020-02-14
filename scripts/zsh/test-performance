@@ -1,0 +1,4 @@
+#!/usr/bin/env zsh
+
+count=${1:-10}
+for _ in $(seq 1 $count); do /usr/bin/time /bin/zsh -i -c exit; done

@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+UPDATE_ZIM_FUNC='
+function UpdateZim()
+	!source $ZIM_HOME/zimfw.zsh install
+	!source $ZIM_HOME/zimfw.zsh build
+endfunction
+'
+
+vim \
+	"+$UPDATE_ZIM_FUNC" \
+	"+au BufWritePost <buffer> call UpdateZim()" \
+	"${XDG_CONFIG_HOME:-${HOME}/.config}/zsh/.zimrc"

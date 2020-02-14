@@ -1,0 +1,11 @@
+[submodule "modules/vim-plug"]
+	path = modules/vim-plug
+	url = https://github.com/junegunn/vim-plug
+	ignore = dirty
+[submodule "modules/zimfw"]
+	path = modules/zimfw
+	url = https://github.com/zimfw/zimfw
+	ignore = dirty
+[submodule "modules/dotbot"]
+	path = modules/dotbot
+	url = https://github.com/anishathalye/dotbot
