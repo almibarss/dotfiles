@@ -23,6 +23,9 @@
     ${XDG_CONFIG_HOME}/zsh/.zimrc: zsh/zim/config
     ${XDG_CONFIG_HOME}/shellcheckrc: zsh/shellcheck/config
     ~/.zshenv: zsh/zshenv
+    ~/Library/Application Support/Alfred/Alfred.alfredpreferences:
+      if: '[[ $(uname -s) == Darwin ]]'
+      path: macos/alfred
 
 - create:
     - ~/.hushlogin
