@@ -1,5 +1,7 @@
 # mperezi/dotfiles
 
+> 🐳  A [dockerized version](https://github.com/mperezi/dotfiles/tree/master/dotbox) of these dotfiles is available for a quick try!
+
 ## Installation
 
 ```bash
