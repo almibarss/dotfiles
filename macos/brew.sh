@@ -5,7 +5,7 @@ set -euo pipefail
 source ~/.dotfiles/scripts/core/utils.sh
 source ~/.dotfiles/scripts/core/log.sh
 
-BREW_URL="https://raw.githubusercontent.com/Homebrew/install/master/install"
+BREW_URL="https://raw.githubusercontent.com/Homebrew/install/master/install.sh"
 BREWFILE="~/.dotfiles/macos/Brewfile"
 
 brew_version() {
@@ -30,7 +30,7 @@ check_brew() {
 
 	section "📦  Install brew"
 	echo "🌎  $BREW_URL"
-	if exec_remote $BREW_URL ruby; then
+	if exec_remote $BREW_URL; then
 		section "> brew _OK_ # $(brew_version)"
 	else
 		section "> brew _FAILED_"

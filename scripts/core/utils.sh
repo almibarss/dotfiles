@@ -44,11 +44,11 @@ macos_info() {
 }
 
 exec_remote() {
-	local url=$1 shell=$2
+	local url=$1 shell=${2:-bash}
 
-	if [[ $shell == *"-with-sudo" ]]; then 
-		[[ $(whoami) != "root" ]] && sudo="sudo -E"
-		shell=${shell#-with-sudo}
+	if [[ $shell =~ -with-sudo$ ]]; then
+		[[ $(whoami) != root ]] && sudo="sudo -E"
+		shell=${shell%-with-sudo}
 	fi
 	
 	case $shell in
@@ -57,8 +57,8 @@ exec_remote() {
 
 	script=$(curl -fsSL $url)
 	exit_status=$?
-	if [[ $exit_status == 0 ]]; then
-		$sudo ${shell:-bash} ${flags:--c} "$script"
+	if (( exit_status == 0 )); then
+		${sudo:-} ${shell:-bash} ${flags:--c} "$script"
 		exit_status=$?
 	fi
 
