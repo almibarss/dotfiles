@@ -5,6 +5,7 @@ brew "autojump"               # https://github.com/wting/autojump
 brew "bat"                    # https://github.com/sharkdp/bat
 brew "exa"                    # https://github.com/ogham/exa
 brew "fd"                     # https://github.com/sharkdp/fd
+brew "flake8"                 # https://flake8.pycqa.org/
 brew "fzf"                    # https://github.com/junegunn/fzf
 brew "git"
 brew "git-delta"              # https://github.com/dandavison/delta
@@ -17,6 +18,7 @@ brew "ripgrep"                # https://github.com/BurntSushi/ripgrep
 brew "shellcheck"             # https://github.com/koalaman/shellcheck
 brew "aykamko/tag-ag/tag-ag"  # https://github.com/aykamko/tag
 brew "vim"
+brew "yamllint"               # https://github.com/adrienverge/yamllint
 brew "zsh"
 cask "alfred"                 # https://www.alfredapp.com/
 cask "docker"

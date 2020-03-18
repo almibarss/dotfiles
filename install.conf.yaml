@@ -21,7 +21,9 @@
     ${XDG_CONFIG_HOME}/git/ignore: git/ignore
     ${XDG_CONFIG_HOME}/zsh/.zshrc: zsh/config
     ${XDG_CONFIG_HOME}/zsh/.zimrc: zsh/zim/config
-    ${XDG_CONFIG_HOME}/shellcheckrc: zsh/shellcheck/config
+    ${XDG_CONFIG_HOME}/shellcheckrc: vim/linters/shellcheck/config
+    ${XDG_CONFIG_HOME}/yamllint/config: vim/linters/yamllint/config
+    ${XDG_CONFIG_HOME}/flake8: vim/linters/flake8/config
     ~/.zshenv: zsh/zshenv
     ~/Library/Application Support/Alfred/Alfred.alfredpreferences:
       if: '[[ $(uname -s) == Darwin ]]'
