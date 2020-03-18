@@ -1,6 +1,8 @@
 tap "homebrew/bundle"
 tap "homebrew/cask"
+tap "homebrew/cask-versions"
 tap "homebrew/core"
+tap "aykamko/tag-ag"
 brew "autojump"               # https://github.com/wting/autojump
 brew "bat"                    # https://github.com/sharkdp/bat
 brew "exa"                    # https://github.com/ogham/exa
@@ -16,7 +18,7 @@ brew "mas"                    # https://github.com/mas-cli/mas
 brew "openssl"
 brew "ripgrep"                # https://github.com/BurntSushi/ripgrep
 brew "shellcheck"             # https://github.com/koalaman/shellcheck
-brew "aykamko/tag-ag/tag-ag"  # https://github.com/aykamko/tag
+brew "tag-ag"                 # https://github.com/aykamko/tag
 brew "vim"
 brew "yamllint"               # https://github.com/adrienverge/yamllint
 brew "zsh"
@@ -28,7 +30,7 @@ cask "iterm2-nightly"
 cask "jetbrains-toolbox"
 cask "karabiner-elements"     # https://github.com/pqrs-org/Karabiner-Elements
 cask "qlmarkdown"
-cask "qlstephen"
+cask "qlstephen"              # https://whomwah.github.io/qlstephen/
 cask "quicklook-json"
 cask "slack"
 cask "spectacle"              # https://www.spectacleapp.com/
