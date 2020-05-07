@@ -5,6 +5,7 @@ set -euo pipefail
 RIPGREP_RELEASE_URL="https://github.com/BurntSushi/ripgrep/releases/download/11.0.2/ripgrep-11.0.2-x86_64-unknown-linux-musl.tar.gz"
 TAG_RELEASE_URL="https://github.com/aykamko/tag/releases/download/v1.4.0/tag_linux_386.tar.gz"
 BAT_RELEASE_URL="https://github.com/sharkdp/bat/releases/download/v0.12.1/bat-v0.12.1-x86_64-unknown-linux-musl.tar.gz"
+SUBLIME_NORD_THEME_URL="https://raw.githubusercontent.com/arcticicestudio/nord-sublime-text/ed99ad15e5b8fc5c4b97aaa312a828f1fc6ad09f/Nord.tmTheme"
 FD_RELEASE_URL="https://github.com/sharkdp/fd/releases/download/v7.4.0/fd-v7.4.0-x86_64-unknown-linux-musl.tar.gz"
 SHELLCHECK_RELEASE_URL="https://github.com/koalaman/shellcheck/releases/download/v0.7.1/shellcheck-v0.7.1.linux.x86_64.tar.xz"
 GIT_DELTA_RELEASE_URL="https://github.com/dandavison/delta/releases/download/0.1.1/delta-0.1.1-x86_64-unknown-linux-musl.tar.gz"
@@ -40,6 +41,22 @@ install_bat() {
 		-C /usr/local/bin \
 		--strip-components=1 \
 		bat-v0.12.1-x86_64-unknown-linux-musl/bat
+
+	install_nord_theme_for_bat
+}
+
+install_nord_theme_for_bat() {
+	echo "Installing Nord theme for bat..."
+	local tmpdir themes_dir
+	tmpdir="$(mktemp -d)"
+	themes_dir="${tmpdir}/themes"
+
+	mkdir -p "$themes_dir"
+	(cd "$themes_dir" && curl -sL --remote-name $SUBLIME_NORD_THEME_URL)
+
+	bat cache --build --source "${tmpdir}"
+
+	rm -rf "${tmpdir}"
 }
 
 install_fd() {
@@ -53,7 +70,7 @@ install_fd() {
 
 install_yamllint() {
 	echo "Installing yamllint..."
-	pip3 install yamllint
+	pip3 --disable-pip-version-check install yamllint
 }
 
 install_shellcheck() {

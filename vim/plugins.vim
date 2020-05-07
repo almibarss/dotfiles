@@ -3,20 +3,16 @@
 " https://github.com/junegunn/vim-plug
 call plug#begin("$HOME/.dotfiles/modules/vim-plug/modules")
 Plug 'ervandew/supertab'
-Plug 'morhetz/gruvbox'
+Plug 'arcticicestudio/nord-vim'
 Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'ryanoasis/vim-devicons'
 Plug 'dense-analysis/ale'
 Plug 'mhinz/vim-signify'
-Plug 'cespare/vim-toml'
 call plug#end()
 
 " Conf
-
-" gruvbox
-let g:gruvbox_contrast_dark="hard"
 
 " vim-signify (https://github.com/mhinz/vim-signify)
 nnoremap gu :SignifyHunkUndo<CR>
@@ -27,6 +23,7 @@ let g:WebDevIconsUnicodeDecorateFolderNodes=1
 let g:DevIconsEnableFoldersOpenClose=1
 
 let g:lightline = {
+	\ 'colorscheme': 'nord',
 	\ 'component_function': {
 	\   'filetype': 'MyFiletype',
 	\   'fileformat': 'MyFileformat',

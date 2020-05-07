@@ -26,6 +26,8 @@ set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
 " Useful to see if a file is indented with tabs or spaces and don't mess up
 set list
 
+set cursorline
+
 " The value of this option influences when the last window will have a status line:
 "	0: never
 "	1: only if there are at least two windows
@@ -83,7 +85,7 @@ set viminfo+=n$XDG_CACHE_HOME/vim/viminfo
 " When set to "dark", Vim will try to use colors that look good on a dark background.
 set background=dark
 " Load color scheme {name}. This searches 'runtimepath' for the file "colors/{name}.vim".
-silent! colorscheme gruvbox
+silent! colorscheme nord
 set t_ZH=[3m t_ZR=[23m
 hi Comment cterm=italic
 

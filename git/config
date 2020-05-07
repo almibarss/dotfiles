@@ -5,7 +5,7 @@
 [core]
 	autocrlf = input
 	excludesFile = ~/.config/git/ignore
-	pager = delta --dark --theme='Monokai Extended'
+	pager = delta --dark --theme='Nord'
 
 [alias]
 	sw = switch
@@ -14,7 +14,6 @@
 	last = log -1 HEAD
 	df = diff
 	dt = difftool
-	lg = log --oneline --graph
 
 [difftool]
 	prompt = false
@@ -24,6 +23,15 @@
 
 [rebase]
 	autoStash = true
+
+[color "decorate"]
+	branch = blue reverse
+	remoteBranch = blue reverse
+	tag = magenta reverse
+	head = yellow bold
+
+[format]
+	pretty = %C(cyan)%h%C(reset) %C(auto)%D %s
 
 [color "diff-highlight"]
 	oldNormal = red bold
