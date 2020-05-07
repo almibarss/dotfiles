@@ -20,7 +20,7 @@ $ docker run \
 	--rm -it \
 	-v /var/run/docker.sock:/var/run/docker.sock \
 	-v dotbox-data:/root/.local \
-	mperezi/dotbox:1.0
+	mperezi/dotbox:1.1
 ```
 
 Please note that:
