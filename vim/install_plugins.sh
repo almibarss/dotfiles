@@ -27,7 +27,7 @@ install_plugins() {
 		return 0
 	fi
 
-	section "📦  Install plugins"
+	section "📦 Install plugins"
 	vim \
 		"+so $VIM_PLUG_PATH" \
 		"+so ${XDG_CONFIG_HOME:-${HOME}/.config}/vim/plugins.vim" \

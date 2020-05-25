@@ -5,7 +5,7 @@ SELF="dotfiles"
 
 _find_commands() {
 	local relative
-	for cmd in $(find "$SCRIPTS_HOME" ! -path "$SCRIPTS_HOME/os/*" -maxdepth 2 -perm +111 -type f); do
+	for cmd in $(find "$SCRIPTS_HOME" ! -path "$SCRIPTS_HOME/os/*" -maxdepth 2 -perm -111 -type f); do
 		relative=${cmd#${SCRIPTS_HOME}/}
 		if [[ $relative =~ ^$SELF/ ]]; then
 			basename $relative
@@ -16,7 +16,7 @@ _find_commands() {
 }
 
 _list_topic() {
-	find "${SCRIPTS_HOME}/$1" -maxdepth 1 -perm +111 -type f | xargs -n 1 basename
+	find "${SCRIPTS_HOME}/$1" -maxdepth 1 -perm -111 -type f | xargs -n 1 basename
 }
 
 _dot() {

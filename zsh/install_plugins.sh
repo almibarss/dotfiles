@@ -31,7 +31,7 @@ check_zimfw() {
 		return 0
 	fi
 
-	section "📦  Install zimfw"
+	section "📦 Install zimfw"
 
 	if zsh "${ZIM_HOME}/zimfw.zsh" install; then
 		section "> zimfw _OK_ # $(zimfw_version)"

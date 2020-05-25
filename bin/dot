@@ -10,7 +10,7 @@ declare -A COMMANDS
 
 scan_commands() {
 	local topic
-	for cmd in $(find "$SCRIPTS_HOME" ! -path "$SCRIPTS_HOME/os/*" -maxdepth 2 -perm +111 -type f); do
+	for cmd in $(find "$SCRIPTS_HOME" -maxdepth 2 -perm -111 -type f ! -path "$SCRIPTS_HOME/os/*"); do
 		topic=$(basename $(dirname $cmd))
 		COMMANDS[$topic]+=":$cmd"
 	done

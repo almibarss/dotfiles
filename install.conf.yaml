@@ -37,7 +37,7 @@
     - ${XDG_DATA_HOME}/zsh
 
 - shell:
-    - [scripts/os/install.sh, '⚡️  OS packages']
-    - [zsh/install_plugins.sh, '⚡️  Zsh plugins']
-    - [vim/install_plugins.sh, '⚡️  Vim plugins']
-    - [git/setup.sh, '⚡️  Git setup']
+    - [scripts/os/install.sh, 'OS packages']
+    - [zsh/install_plugins.sh, 'Zsh plugins']
+    - [vim/install_plugins.sh, 'Vim plugins']
+    - [git/setup.sh, 'Git setup']
