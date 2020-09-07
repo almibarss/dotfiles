@@ -8,5 +8,4 @@ zmodule git-info
 zmodule zsh-users/zsh-completions
 zmodule completion
 zmodule zsh-users/zsh-autosuggestions
-zmodule mperezi/lean
 zmodule zsh-users/zsh-syntax-highlighting

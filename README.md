@@ -28,7 +28,7 @@ Saving fractions of milliseconds here and there eventually adds up:
 
 * [fzf](https://github.com/junegunn/fzf) is _the tool_ that changes the game: shell history, file trees, brew packages, whatever.
 * Syntax highlighting [(1)](https://github.com/zsh-users/zsh-syntax-highlighting) [(2)](https://github.com/sharkdp/bat): because parsing blank lines of text all the time can be frustrating.
-* [Minimalistic prompt](https://github.com/mperezi/lean): staying out of the way most of the time while still providing useful information. 
+* [Minimalistic prompt](https://starship.rs/): staying out of the way most of the time while still providing useful information. 
 * Clever tooling: 
   * [ripgrep](https://github.com/BurntSushi/ripgrep) + [tag](https://github.com/aykamko/tag) for seamless browsing of search results.
   * [autojump](https://github.com/wting/autojump): where was that directory? uh, don't mind.

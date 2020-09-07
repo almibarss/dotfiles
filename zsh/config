@@ -50,6 +50,7 @@ SOURCE_FILES=(
 	~/.dotfiles/zsh/fzf/env.zsh
 	~/.dotfiles/zsh/fzf/key-bindings.zsh
 	~/.dotfiles/zsh/autojump/init.zsh
+	~/.dotfiles/zsh/starship/init.zsh
 	~/.dotfiles/sdkman/init.zsh
 )
 

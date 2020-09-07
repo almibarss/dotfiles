@@ -17,6 +17,7 @@
     ${DOTFILES_HOME}/modules/vim-plug/autoload/plug.vim: modules/vim-plug/plug.vim
     ${XDG_CONFIG_HOME}/bat/config: zsh/bat/config
     ${XDG_CONFIG_HOME}/ripgrep/config: zsh/ripgrep/config
+    ${XDG_CONFIG_HOME}/starship/config: zsh/starship/config
     ${XDG_CONFIG_HOME}/git/config: git/config
     ${XDG_CONFIG_HOME}/git/ignore: git/ignore
     ${XDG_CONFIG_HOME}/zsh/.zshrc: zsh/config

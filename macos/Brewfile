@@ -18,6 +18,7 @@ brew "mas"                    # https://github.com/mas-cli/mas
 brew "openssl"
 brew "ripgrep"                # https://github.com/BurntSushi/ripgrep
 brew "shellcheck"             # https://github.com/koalaman/shellcheck
+brew "starship"               # https://starship.rs/
 brew "tag-ag"                 # https://github.com/aykamko/tag
 brew "vim"
 brew "yamllint"               # https://github.com/adrienverge/yamllint
@@ -29,11 +30,8 @@ cask "google-chrome"
 cask "iterm2-nightly"
 cask "jetbrains-toolbox"
 cask "karabiner-elements"     # https://github.com/pqrs-org/Karabiner-Elements
-cask "qlmarkdown"
-cask "qlstephen"              # https://whomwah.github.io/qlstephen/
-cask "quicklook-json"
+cask "rectangle"              # https://rectangleapp.com/
 cask "slack"
-cask "spectacle"              # https://www.spectacleapp.com/
 cask "typora"                 # https://typora.io/
+cask "vanilla"                # https://matthewpalmer.net/vanilla/
 cask "whatsapp"
-mas "Monosnap", id: 540348655 # https://monosnap.com/

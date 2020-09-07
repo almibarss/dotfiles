@@ -1,0 +1,49 @@
+add_newline = true
+
+[aws]
+symbol = "  "
+
+[battery]
+disabled = true
+
+[character]
+use_symbol_for_status = true
+
+[cmd_duration]
+style = "dimmed white"
+
+[directory]
+truncate_to_repo = true
+
+[git_branch]
+truncation_length = 30
+symbol = " "
+
+[git_status]
+show_sync_count = true
+style = "bold yellow"
+modified_count.enabled = true
+
+[golang]
+disabled = true
+
+[java]
+disabled = true
+
+[jobs]
+style = "dimmed white"
+
+[memory_usage]
+disabled = true
+
+[nodejs]
+disabled = true
+
+[package]
+disabled = true
+
+[python]
+disabled = true
+
+[ruby]
+disabled = true
