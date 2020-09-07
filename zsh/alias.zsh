@@ -1,4 +1,4 @@
-alias vi='vim'
+alias v='vim'
 alias l='ls'
 alias ll='ls -l'
 alias la='ls -la'
@@ -18,8 +18,24 @@ fi
 
 if has git; then
 	alias gc='git commit'
-	alias gl='git lg'
+	alias gcm='git commit -m'
+	alias gca='git commit --amend'
+	alias gcane='git commit --amend --no-edit'
+	alias gcl='git clone'
+	alias ga='git add'
+	alias gau='git add -u'
+	alias gri='git rebase -i'
+	alias grc='git rebase --continue'
+	alias gra='git rebase --abort'
+	alias gl='git log'
+	alias gla='git log --graph'
 	alias gs='git status --short --branch'
+	alias gr='git reset'
+	alias grh='git reset --hard'
+	alias gpus='git push'
+	alias gpusu='git push -u'
+	alias gpusf='git push -f'
+	alias gpul='git pull'
 fi
 
 alias rg=tag

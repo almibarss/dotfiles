@@ -54,3 +54,6 @@
 
 [include]
   path = ~/.dotfiles/local/gitconfig
+
+[push]
+	default = current
