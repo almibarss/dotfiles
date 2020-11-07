@@ -3,6 +3,10 @@ alias l='ls'
 alias ll='ls -l'
 alias la='ls -la'
 alias ..='cd ..'
+alias mv='mv -v'
+alias cp='cp -v'
+alias ln='ln -v'
+alias rm='rm -v'
 
 if has exa; then
 	alias ls='exa'
@@ -27,15 +31,20 @@ if has git; then
 	alias gri='git rebase -i'
 	alias grc='git rebase --continue'
 	alias gra='git rebase --abort'
+	alias gmc='git merge --continue'
+	alias gma='git merge --abort'
 	alias gl='git log'
-	alias gla='git log --graph'
 	alias gs='git status --short --branch'
 	alias gr='git reset'
 	alias grh='git reset --hard'
 	alias gpus='git push'
+	alias gpusnv='git push --no-verify'
 	alias gpusu='git push -u'
 	alias gpusf='git push -f'
 	alias gpul='git pull'
+	alias gsw='git switch'
+	alias gcb='git switch -c'
+	alias gdc='git df --cached'
 fi
 
 alias rg=tag
