@@ -20,9 +20,7 @@ truncation_length = 30
 symbol = " "
 
 [git_status]
-show_sync_count = true
-style = "bold yellow"
-modified_count.enabled = true
+disabled = true
 
 [golang]
 disabled = true
