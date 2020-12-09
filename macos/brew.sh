@@ -16,6 +16,7 @@ install_packages() {
 	section "📦  Brew bundle"
 	if brew bundle --file=$BREWFILE; then
 		section "> Brewfile _OK_"
+		remove_quarantine_from_installed_apps
 	else
 		section "> Brewfile _FAILED_"
 		return 1
@@ -36,6 +37,13 @@ check_brew() {
 		section "> brew _FAILED_"
 		return 1
 	fi
+}
+
+remove_quarantine_from_installed_apps() {
+	 brew list --cask |
+		 xargs brew info --json=v2 --cask |
+		 jq '.casks[].artifacts[] | select(type=="array") | .[0] | select(test(".*\\.app$"))' |
+		 xargs -I{} xattr -r -d com.apple.quarantine /Applications/{} 2>/dev/null
 }
 
 check_brew && install_packages
