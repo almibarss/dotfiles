@@ -5,3 +5,4 @@ BASEDIR=$(dirname $0)
 $BASEDIR/defaults.sh
 $BASEDIR/brew.sh
 $BASEDIR/custom.sh
+$BASEDIR/notifications.sh

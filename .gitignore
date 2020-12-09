@@ -1,3 +1,4 @@
 /local/
-/macos/alfred/Alfred.alfredpreferences/workflows/**/*.pyc
+/**/Alfred.alfredpreferences/workflows/**/*.pyc
+/**/Alfred.alfredpreferences/preferences/local
 Brewfile.lock.json
