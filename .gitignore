@@ -1,2 +1,3 @@
 /local/
 /macos/alfred/Alfred.alfredpreferences/workflows/**/*.pyc
+Brewfile.lock.json

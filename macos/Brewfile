@@ -1,37 +1,41 @@
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-versions"
+tap "homebrew/cask-fonts"
 tap "homebrew/core"
 tap "aykamko/tag-ag"
-brew "autojump"               # https://github.com/wting/autojump
-brew "bat"                    # https://github.com/sharkdp/bat
-brew "exa"                    # https://github.com/ogham/exa
-brew "fd"                     # https://github.com/sharkdp/fd
-brew "flake8"                 # https://flake8.pycqa.org/
-brew "fzf"                    # https://github.com/junegunn/fzf
+brew "autojump"                  # https://github.com/wting/autojump
+brew "bat"                       # https://github.com/sharkdp/bat
+brew "exa"                       # https://github.com/ogham/exa
+brew "fd"                        # https://github.com/sharkdp/fd
+brew "flake8"                    # https://flake8.pycqa.org/
+brew "fzf"                       # https://github.com/junegunn/fzf
+brew "gh"                        # https://github.com/cli/cli
 brew "git"
-brew "git-delta"              # https://github.com/dandavison/delta
-brew "git-open"               # https://github.com/jeffreyiacono/git-open
-brew "httpie"                 # https://httpie.org/
-brew "jq"                     # https://github.com/stedolan/jq
-brew "mas"                    # https://github.com/mas-cli/mas
+brew "git-delta"                 # https://github.com/dandavison/delta
+brew "git-open"                  # https://github.com/jeffreyiacono/git-open
+brew "httpie"                    # https://httpie.org/
+brew "jq"                        # https://github.com/stedolan/jq
+brew "mas"                       # https://github.com/mas-cli/mas
 brew "openssl"
-brew "ripgrep"                # https://github.com/BurntSushi/ripgrep
-brew "shellcheck"             # https://github.com/koalaman/shellcheck
-brew "starship"               # https://starship.rs/
-brew "tag-ag"                 # https://github.com/aykamko/tag
+brew "ripgrep"                   # https://github.com/BurntSushi/ripgrep
+brew "shellcheck"                # https://github.com/koalaman/shellcheck
+brew "starship"                  # https://starship.rs/
+brew "tag-ag"                    # https://github.com/aykamko/tag
 brew "vim"
-brew "yamllint"               # https://github.com/adrienverge/yamllint
+brew "yamllint"                  # https://github.com/adrienverge/yamllint
 brew "zsh"
-cask "alfred"                 # https://www.alfredapp.com/
+cask "alfred"                    # https://www.alfredapp.com/
 cask "docker"
-cask "font-jetbrains-mono"    # https://www.jetbrains.com/lp/mono/
+cask "font-jetbrains-mono"       # https://www.jetbrains.com/lp/mono/
+cask "font-fira-code-nerd-font"  # https://github.com/tonsky/FiraCode
 cask "google-chrome"
 cask "iterm2-nightly"
 cask "jetbrains-toolbox"
-cask "karabiner-elements"     # https://github.com/pqrs-org/Karabiner-Elements
-cask "rectangle"              # https://rectangleapp.com/
+cask "postman"                   # https://www.postman.com/
+cask "rectangle"                 # https://rectangleapp.com/
 cask "slack"
-cask "typora"                 # https://typora.io/
-cask "vanilla"                # https://matthewpalmer.net/vanilla/
+cask "typora"                    # https://typora.io/
+cask "vanilla"                   # https://matthewpalmer.net/vanilla/
+cask "visual-studio-code"
 cask "whatsapp"
