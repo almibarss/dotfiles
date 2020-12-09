@@ -27,3 +27,7 @@ defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 defaults write NSGlobalDomain InitialKeyRepeat -int 10
 defaults write NSGlobalDomain KeyRepeat -int 2
+
+# Dark mode
+echo "Setting dark mode"
+defaults write "Apple Global Domain" "AppleInterfaceStyle" "Dark"
