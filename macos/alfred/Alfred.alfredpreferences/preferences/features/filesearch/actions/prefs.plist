@@ -4,13 +4,21 @@
 <dict>
 	<key>disabledDefaultActions</key>
 	<dict>
+		<key>alfred.action.copyfile</key>
+		<true/>
 		<key>alfred.action.email</key>
 		<true/>
 		<key>alfred.action.emailto</key>
 		<true/>
 		<key>alfred.action.findsimilar</key>
 		<true/>
+		<key>alfred.action.getinfo</key>
+		<true/>
 		<key>alfred.action.open</key>
+		<true/>
+		<key>alfred.action.revealinfinder</key>
+		<true/>
+		<key>alfred.action.showpackagecontents</key>
 		<true/>
 	</dict>
 	<key>sortByUsage</key>

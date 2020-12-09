@@ -23,7 +23,7 @@
 		</array>
 	</dict>
 	<key>createdby</key>
-	<string>Miguel Pérez</string>
+	<string>mperezi</string>
 	<key>description</key>
 	<string>Launch a Google Search for the selected text or clipboard</string>
 	<key>disabled</key>

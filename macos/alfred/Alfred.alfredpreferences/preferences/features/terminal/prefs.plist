@@ -23,9 +23,9 @@ on alfred_script(q)
 						set onlywindow to true
 					end try
 					tell the first window
-						if onlywindow is false then
+					--	if onlywindow is false then
 							create tab with default profile
-						end if
+					--	end if
 						tell current session to write text q
 					end tell
 				end tell
