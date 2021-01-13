@@ -1,4 +1,4 @@
-SDKMAN_DIR="/usr/local/sdkman"
+export SDKMAN_DIR="/usr/local/sdkman"
 
 # https://mharrison.org/post/bashfunctionoverride/
 copy_function() {
