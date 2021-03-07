@@ -21,4 +21,6 @@ export FZF_CTRL_T_OPTS="
 export FZF_CTRL_R_OPTS="
 	--preview 'echo {}'
 	--preview-window down:3:hidden:wrap
+	--header='CTRL-Y to copy to clipboard'
+	--bind \"ctrl-y:execute(echo {} | sed -e \'s,^[0-9]* *,,g\' | pbcopy)\"
 "
