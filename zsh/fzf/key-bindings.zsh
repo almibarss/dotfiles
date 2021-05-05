@@ -29,13 +29,12 @@ bindkey '^T' fzf-file-widget
 fzf-history-widget() {
 	local selected num
 	setopt localoptions noglobsubst noposixbuiltins pipefail no_aliases 2>/dev/null
-	selected=( $(fc -rl 1 |
-		FZF_DEFAULT_OPTS="--height 40% $FZF_DEFAULT_OPTS --nth=2..,.. --tiebreak=index
+	selected=( $(fc -rln 1 |
+		FZF_DEFAULT_OPTS="--height 40% $FZF_DEFAULT_OPTS --tiebreak=index
 			--bind=ctrl-r:toggle-sort $FZF_CTRL_R_OPTS --query=${(qqq)LBUFFER} --no-multi" fzf) )
 	local ret=$?
 	if [[ -n $selected ]]; then
-		num=$selected[1]
-		zle vi-fetch-history -n $num
+		LBUFFER="$selected"
 	fi
 	zle reset-prompt
 	return $ret

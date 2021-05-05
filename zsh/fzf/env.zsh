@@ -21,6 +21,7 @@ export FZF_CTRL_T_OPTS="
 export FZF_CTRL_R_OPTS="
 	--preview 'echo {}'
 	--preview-window down:3:hidden:wrap
-	--header='CTRL-Y to copy to clipboard'
-	--bind \"ctrl-y:execute(echo {} | sed -e \'s,^[0-9]* *,,g\' | pbcopy)\"
+	--header='ctrl-y to copy to clipboard, ctrl-e to query explainshell.com'
+	--bind \"ctrl-y:execute(echo {} | pbcopy)\"
+	--bind \"ctrl-e:execute(curl -sLG -o /dev/null -w '%{url_effective}' --data-urlencode cmd={} https://explainshell.com/explain | xargs open)\"
 "
