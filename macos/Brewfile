@@ -26,16 +26,16 @@ brew "vim"
 brew "yamllint"                  # https://github.com/adrienverge/yamllint
 brew "zsh"
 cask "alfred"                    # https://www.alfredapp.com/
+cask "bartender"                 # https://www.macbartender.com/
 cask "docker"
 cask "font-jetbrains-mono"       # https://www.jetbrains.com/lp/mono/
 cask "font-fira-code-nerd-font"  # https://github.com/tonsky/FiraCode
 cask "google-chrome"
 cask "iterm2-nightly"
 cask "jetbrains-toolbox"
+cask "moom"                      # https://manytricks.com/moom/
 cask "postman"                   # https://www.postman.com/
-cask "rectangle"                 # https://rectangleapp.com/
 cask "slack"
 cask "typora"                    # https://typora.io/
-cask "vanilla"                   # https://matthewpalmer.net/vanilla/
 cask "visual-studio-code"
 cask "whatsapp"
