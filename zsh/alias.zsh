@@ -1,3 +1,7 @@
+alias b='bat'
+alias d='docker'
+alias e='echo'
+alias g='git'
 alias v='vim'
 alias l='ls'
 alias ll='ls -l'
