@@ -2,12 +2,10 @@ add_newline = true
 
 [aws]
 symbol = "  "
+disabled = true
 
 [battery]
 disabled = true
-
-[character]
-use_symbol_for_status = true
 
 [cmd_duration]
 style = "dimmed white"
