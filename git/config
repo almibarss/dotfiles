@@ -52,8 +52,11 @@
 	changed = yellow italic
 	untracked = white dim
 
-[include]
-  path = ~/.dotfiles/local/gitconfig
-
 [push]
 	default = current
+
+[init]
+	defaultBranch = main
+
+[include]
+  path = ~/.dotfiles/local/gitconfig
