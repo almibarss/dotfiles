@@ -4,8 +4,10 @@ tap "homebrew/cask-versions"
 tap "homebrew/cask-fonts"
 tap "homebrew/core"
 tap "aykamko/tag-ag"
+tap "sdkman/tap"
 brew "autojump"                  # https://github.com/wting/autojump
 brew "bat"                       # https://github.com/sharkdp/bat
+brew "coreutils"
 brew "exa"                       # https://github.com/ogham/exa
 brew "fd"                        # https://github.com/sharkdp/fd
 brew "flake8"                    # https://flake8.pycqa.org/
@@ -14,28 +16,31 @@ brew "gh"                        # https://github.com/cli/cli
 brew "git"
 brew "git-delta"                 # https://github.com/dandavison/delta
 brew "git-open"                  # https://github.com/jeffreyiacono/git-open
+brew "gnu-sed"                   # https://www.gnu.org/software/sed/
 brew "httpie"                    # https://httpie.org/
 brew "jq"                        # https://github.com/stedolan/jq
 brew "mas"                       # https://github.com/mas-cli/mas
 brew "openssl"
 brew "ripgrep"                   # https://github.com/BurntSushi/ripgrep
+brew "sdkman-cli"                # https://sdkman.io/
 brew "shellcheck"                # https://github.com/koalaman/shellcheck
 brew "starship"                  # https://starship.rs/
 brew "tag-ag"                    # https://github.com/aykamko/tag
 brew "vim"
 brew "yamllint"                  # https://github.com/adrienverge/yamllint
+brew "yq"                        # https://github.com/mikefarah/yq
 brew "zsh"
-cask "alfred"                    # https://www.alfredapp.com/
 cask "bartender"                 # https://www.macbartender.com/
+cask "bettertouchtool"           # https://folivora.ai
 cask "docker"
 cask "font-jetbrains-mono"       # https://www.jetbrains.com/lp/mono/
 cask "font-fira-code-nerd-font"  # https://github.com/tonsky/FiraCode
 cask "google-chrome"
-cask "iterm2-nightly"
 cask "jetbrains-toolbox"
 cask "moom"                      # https://manytricks.com/moom/
 cask "postman"                   # https://www.postman.com/
+cask "raycast"                   # https://www.raycast.com/
 cask "slack"
-cask "typora"                    # https://typora.io/
 cask "visual-studio-code"
+cask "warp"                      # https://www.warp.dev/
 cask "whatsapp"
