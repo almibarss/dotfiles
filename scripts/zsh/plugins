@@ -7,7 +7,7 @@ function UpdateZim()
 endfunction
 '
 
-vim \
+${EDITOR:-nvim} \
 	"+$UPDATE_ZIM_FUNC" \
 	"+au BufWritePost <buffer> call UpdateZim()" \
 	"${XDG_CONFIG_HOME:-${HOME}/.config}/zsh/.zimrc"

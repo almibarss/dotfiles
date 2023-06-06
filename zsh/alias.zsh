@@ -12,6 +12,14 @@ alias cp='cp -v'
 alias ln='ln -v'
 alias rm='rm -v'
 
+if has gsed; then
+	alias sed='gsed'
+fi
+
+if has gdate; then
+	alias date='gdate'
+fi
+
 if has exa; then
 	alias ls='exa'
 	alias t1='exa -L 2 -T'
@@ -25,6 +33,7 @@ if has docker; then
 fi
 
 if has git; then
+	alias gf='git fetch'
 	alias gc='git commit'
 	alias gcm='git commit -m'
 	alias gca='git commit --amend'
@@ -52,6 +61,11 @@ if has git; then
 fi
 
 alias rg=tag
+alias rgni=rg --no-ignore
+alias nvim='env -u VIMINIT nvim'
+alias nv=nvim
+alias gw=./gradlew
+alias jshell='jshell JAVASE'
 
 # Global aliases
 

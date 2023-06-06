@@ -3,24 +3,68 @@
 
 set -euo pipefail
 
-DOTFILES_URL="https://github.com/mperezi/dotfiles.git"
+DOTFILES_CLONE_URL="https://github.com/almibarss/dotfiles.git"
+DOTFILES_PUSH_URL="git@github.com:almibarss/dotfiles.git"
 DOTFILES_HOME=${DOTFILES_HOME:-~/.dotfiles}
 DOTBOT_DIR="modules/dotbot"
 DOTBOT_BIN="bin/dotbot"
 
-has() {
-	# https://stackoverflow.com/a/26759734
-	[[ -x $(command -v $1) ]]
+main() {
+  has git && has curl ||
+    abort "Please install git and curl before running the installer"
+
+  echo "DOTFILES_HOME=$DOTFILES_HOME"
+  echo
+
+  setup_sudo
+  check_deps
+  check_installation
+
+  export DOTFILES_HOME
+  export XDG_CONFIG_HOME=~/.config
+  export XDG_CACHE_HOME=~/.cache
+  export XDG_DATA_HOME=~/.local/share
+
+
+  echo "🤖 Dotfiles powered by dotbot"
+  "${DOTFILES_HOME}/${DOTBOT_DIR}/${DOTBOT_BIN}" \
+    --base-directory "$DOTFILES_HOME" \
+    --config-file "${DOTFILES_HOME}/install.conf.yaml" \
+    ${DOTFILES_NO_COLOR:+"--no-color"} &&
+    congratulations
 }
 
-abort() {
-	echo "Error: $1" >&2
-	exit 1
+setup_sudo() {
+  echo "⚠️ The script enables passwordless sudo for unattended installation"
+  sudo sh -c "echo \"$(whoami)\t\tALL=(ALL) NOPASSWD: ALL\" >> /etc/sudoers"
+}
+
+check_deps() {
+  ! [[ $(os_type) == macos ]] && return
+
+  echo "MacOS detected. Installing required Command Line Tools for XCode..."
+  # https://apple.stackexchange.com/a/195963
+  touch /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress
+  local -r cli_update=$(softwareupdate -l |
+    grep '^*' |
+    cut -d: -f2 |
+    grep -i 'command line' |
+    sort -r |
+    head  -n1 |
+    xargs)
+
+  [[ -n $cli_update ]] || abort "Command Line Tools update not found. Please install manually"
+
+  echo "Update found: $cli_update"
+  softwareupdate -i "$cli_update" --verbose
+  rm -f /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress
 }
 
 check_installation() {
 	if [[ ! -d $DOTFILES_HOME ]]; then
+    echo
 		echo "🚀 First time install"
+    echo
 		clone_repo || abort "Failed to clone repo"
 	elif already_cloned; then
 		echo "🔍 Installation found"
@@ -30,25 +74,15 @@ check_installation() {
 	fi
 }
 
-git_version_above() {
-	local git_version=$(awk 'NR==1{print $3}' <(git --version))
-	local given_version=$1
-	# https://stackoverflow.com/a/4024263/13166837
-	local lowest_version=$(printf "${git_version}\n${given_version}" | sort -V | head -1)
-	[[ $lowest_version == $given_version ]]
-}
-
 clone_repo() {
-	local clone_options="--depth 1 --recurse-submodules"
-	# https://stackoverflow.com/a/38953685/13166837
-	if git_version_above 2.9; then
-		clone_options+=" --shallow-submodules"
-	fi
-	git clone $clone_options "$DOTFILES_URL" "$DOTFILES_HOME"
+	local clone_options="--depth 1 --recurse-submodules --shallow-submodules"
+	git clone $clone_options "$DOTFILES_CLONE_URL" "$DOTFILES_HOME"
+  # we change the remote URL so that we can push later on using a public key
+  (cd $DOTFILES_HOME && git remote set-url origin $DOTFILES_PUSH_URL)
 }
 
 already_cloned() {
-	(cd "$DOTFILES_HOME" && [[ $(git remote get-url origin) == $DOTFILES_URL ]]) &>/dev/null
+	(cd "$DOTFILES_HOME" && [[ $(git remote get-url origin) == $DOTFILES_PUSH_URL ]]) &>/dev/null
 }
 
 congratulations() {
@@ -62,24 +96,22 @@ congratulations() {
 	echo "└──────────────────────────────────┘"
 	echo -n "$RESET"
 }
+has() {
+	# https://stackoverflow.com/a/26759734
+	[[ -x $(command -v $1) ]]
+}
 
+abort() {
+	echo "Error: $1" >&2
+	exit 1
+}
 
-has git && has curl ||
-	abort "Please install git and curl before running the installer"
+os_type() {
+	case $(uname -s) in
+		Linux)  linux_flavor;;
+		Darwin) echo "macos";;
+		*)      echo "unknown";;
+	esac
+}
 
-echo "DOTFILES_HOME=$DOTFILES_HOME"
-echo
-
-check_installation
-
-export DOTFILES_HOME
-export XDG_CONFIG_HOME=~/.config
-export XDG_CACHE_HOME=~/.cache
-export XDG_DATA_HOME=~/.local/share
-
-echo "🤖 Dotfiles powered by dotbot"
-"${DOTFILES_HOME}/${DOTBOT_DIR}/${DOTBOT_BIN}" \
-	--base-directory "$DOTFILES_HOME" \
-	--config-file "${DOTFILES_HOME}/install.conf.yaml" \
-	${DOTFILES_NO_COLOR:+"--no-color"} &&
-	congratulations
+main "$@"

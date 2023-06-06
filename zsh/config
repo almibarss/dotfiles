@@ -47,6 +47,7 @@ SOURCE_FILES=(
 	~/.dotfiles/zsh/alias.zsh
 	~/.dotfiles/zsh/env.zsh
 	~/.dotfiles/zsh/key-bindings.zsh
+	~/.dotfiles/macos/brew/init.zsh
 	~/.dotfiles/zsh/fzf/env.zsh
 	~/.dotfiles/zsh/fzf/key-bindings.zsh
 	~/.dotfiles/zsh/autojump/init.zsh

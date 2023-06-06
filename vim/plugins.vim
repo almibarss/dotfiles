@@ -10,6 +10,8 @@ Plug 'tpope/vim-surround'
 Plug 'ryanoasis/vim-devicons'
 Plug 'dense-analysis/ale'
 Plug 'mhinz/vim-signify'
+Plug 'easymotion/vim-easymotion'
+Plug 'machakann/vim-highlightedyank'
 call plug#end()
 
 " Conf
@@ -44,3 +46,19 @@ function! MyFileformat()
 		return &fileformat
 	endif
 endfunction
+
+" Vim EasyMotion
+let g:EasyMotion_startofline = 0
+let g:EasyMotion_smartcase = 1
+let g:EasyMotion_enter_jump_first = 1
+let g:EasyMotion_grouping = 1
+map <leader> <Plug>(easymotion-prefix)
+nmap s <Plug>(easymotion-f2)
+nmap S <Plug>(easymotion-F2)
+nmap <leader>j <Plug>(easymotion-j)
+nmap <leader>k <Plug>(easymotion-k)
+
+" UndoTree
+nnoremap <F5> :UndotreeToggle<CR>
+let g:undotree_WindowLayout = 2
+

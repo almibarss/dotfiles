@@ -14,6 +14,7 @@ brew_version() {
 
 install_packages() {
 	section "📦  Brew bundle"
+  export HOMEBREW_CASK_OPTS="--appdir=$HOME/Applications"
 	if brew bundle --file=$BREWFILE; then
 		section "> Brewfile _OK_"
 		remove_quarantine_from_installed_apps
@@ -31,7 +32,9 @@ check_brew() {
 
 	section "📦  Install brew"
 	echo "🌎  $BREW_URL"
+  export NONINTERACTIVE=1
 	if exec_remote $BREW_URL; then
+		eval "$(/opt/homebrew/bin/brew shellenv)"
 		section "> brew _OK_ # $(brew_version)"
 	else
 		section "> brew _FAILED_"

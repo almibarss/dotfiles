@@ -1,11 +1,11 @@
-# mperezi/dotfiles
+# almibarss/dotfiles
 
 > 🐳  A [dockerized version](https://github.com/mperezi/dotfiles/tree/master/dotbox) of these dotfiles is available for a quick try!
 
 ## Installation
 
 ```bash
-$ bash <(curl -sL https://raw.githubusercontent.com/mperezi/dotfiles/master/install.sh)
+bash <(curl -sL https://raw.githubusercontent.com/almibarss/dotfiles/main/install.sh)
 ```
 
 The installation script will clone the dotfiles repo by default into ~/.dotfiles. You can optionally choose a custom directory by specifying the environment variable `$DOTFILES_HOME`. The dotfiles repo will then get symlinked into ~/.dotfiles as well.
@@ -13,7 +13,7 @@ The installation script will clone the dotfiles repo by default into ~/.dotfiles
 ## Update
 
 ```bash
-$ dot update
+dot update
 ```
 
 ## Features

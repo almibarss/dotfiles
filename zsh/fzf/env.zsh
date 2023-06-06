@@ -19,6 +19,7 @@ export FZF_CTRL_T_OPTS="
 "
 
 export FZF_CTRL_R_OPTS="
+	--no-info
 	--preview 'echo {}'
 	--preview-window down:3:hidden:wrap
 	--header='ctrl-y to copy to clipboard, ctrl-e to query explainshell.com'

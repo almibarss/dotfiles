@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-vim "${HOME}/.dotfiles/local/gitconfig"
+${EDITOR:-nvim} "${HOME}/.dotfiles/local/gitconfig"

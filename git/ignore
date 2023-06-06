@@ -5,3 +5,8 @@
 .idea
 *.iml
 out/
+
+### SDKMAN! ###
+.sdkmanrc
+
+.vscode/

@@ -3,9 +3,10 @@ tap "homebrew/cask"
 tap "homebrew/cask-versions"
 tap "homebrew/cask-fonts"
 tap "homebrew/core"
-tap "aykamko/tag-ag"
 tap "sdkman/tap"
+tap "almibarss/tools"            # arm64 binary for tag-ag
 brew "autojump"                  # https://github.com/wting/autojump
+brew "bash"
 brew "bat"                       # https://github.com/sharkdp/bat
 brew "coreutils"
 brew "exa"                       # https://github.com/ogham/exa
@@ -17,9 +18,13 @@ brew "git"
 brew "git-delta"                 # https://github.com/dandavison/delta
 brew "git-open"                  # https://github.com/jeffreyiacono/git-open
 brew "gnu-sed"                   # https://www.gnu.org/software/sed/
+brew "gum"                       # https://github.com/charmbracelet/gum
+brew "gpg"
 brew "httpie"                    # https://httpie.org/
 brew "jq"                        # https://github.com/stedolan/jq
+brew "just"                      # https://github.com/casey/just
 brew "mas"                       # https://github.com/mas-cli/mas
+brew "nvim"                      # https://neovim.io/
 brew "openssl"
 brew "ripgrep"                   # https://github.com/BurntSushi/ripgrep
 brew "sdkman-cli"                # https://sdkman.io/
@@ -30,16 +35,19 @@ brew "vim"
 brew "yamllint"                  # https://github.com/adrienverge/yamllint
 brew "yq"                        # https://github.com/mikefarah/yq
 brew "zsh"
+cask "adobe-acrobat-reader"
 cask "bartender"                 # https://www.macbartender.com/
 cask "bettertouchtool"           # https://folivora.ai
 cask "docker"
 cask "font-jetbrains-mono"       # https://www.jetbrains.com/lp/mono/
 cask "font-fira-code-nerd-font"  # https://github.com/tonsky/FiraCode
 cask "google-chrome"
-cask "jetbrains-toolbox"
+cask "intellij-idea-ce"
 cask "moom"                      # https://manytricks.com/moom/
+cask "notion"                    # https://www.notion.so/es-es/desktop
 cask "postman"                   # https://www.postman.com/
 cask "raycast"                   # https://www.raycast.com/
+cask "readdle-spark"             # https://sparkmailapp.com/
 cask "slack"
 cask "visual-studio-code"
 cask "warp"                      # https://www.warp.dev/

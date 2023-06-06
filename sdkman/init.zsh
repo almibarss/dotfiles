@@ -1,4 +1,4 @@
-export SDKMAN_DIR="/usr/local/sdkman"
+export SDKMAN_DIR=$(brew --prefix sdkman-cli)/libexec
 
 # https://mharrison.org/post/bashfunctionoverride/
 copy_function() {
@@ -26,7 +26,7 @@ init_sdkman() {
 
 sdk_fuzzy_find_local_version() {
 	local candidate=$1
-	__sdkman_build_version_csv $candidate | tr ',' '\n' | sort -r -n | fzf -d '\.' --nth 1
+	__sdkman_build_version_csv $candidate | tr ',' '\n' | sort -r -n | gum filter --height=3
 }
 
 # https://frederic-hemberger.de/articles/speed-up-initial-zsh-startup-with-lazy-loading/
@@ -42,14 +42,27 @@ sdk_proxy() {
 copy_function sdk_proxy sdk
 
 sdkman_auto_env() {
-	if [[ -f .sdkmanrc ]]; then
-		sdk env
-	elif [[ -n $SDKMAN_ENV ]] && [[ ! $PWD =~ ^$SDKMAN_ENV ]]; then
+	if [[ -n $SDKMAN_ENV ]] && [[ ! $PWD =~ ^$SDKMAN_ENV ]]; then
 		sdk env clear
 	fi
+	if [[ -f .sdkmanrc ]] && [[ $PWD != $SDKMAN_ENV ]]; then
+		sdk env
+	fi
 }
-add-zsh-hook chpwd sdkman_auto_env
+# add-zsh-hook chpwd sdkman_auto_env
+# sdkman_auto_env
 
-sdkman_auto_env
+java_with_auto_env() {
+	sdkman_auto_env
+	command java "$@"
+}
+
+maven_with_auto_env() {
+	sdkman_auto_env
+	command mvn "$@"
+}
+
+alias java=java_with_auto_env
+alias mvn=maven_with_auto_env
 
 fi
