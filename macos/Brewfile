@@ -4,7 +4,7 @@ tap "homebrew/cask-versions"
 tap "homebrew/cask-fonts"
 tap "homebrew/core"
 tap "sdkman/tap"
-tap "almibarss/tools"            # arm64 binary for tag-ag
+tap "christopherthielen/tag-ag"  # https://github.com/aykamko/tag (build from sources)
 brew "autojump"                  # https://github.com/wting/autojump
 brew "bash"
 brew "bat"                       # https://github.com/sharkdp/bat
