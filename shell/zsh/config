@@ -8,3 +8,7 @@ for init in \
 do
   source $init
 done
+
+for local in ~/.dotfiles/local/scripts/*.sh; do
+  source $local
+done
