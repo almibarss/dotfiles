@@ -1,0 +1,5 @@
+alias g..='cd $(git rev-parse --show-toplevel)'
+alias gpl='git pull'
+alias gps='git push'
+alias gpsf='git push --force-with-lease'
+alias gcane='git commit --amend --no-edit'

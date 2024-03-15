@@ -5,14 +5,12 @@ tap "homebrew/cask-fonts"
 tap "homebrew/core"
 tap "sdkman/tap"
 tap "christopherthielen/tag-ag"  # https://github.com/aykamko/tag (build from sources)
+
 brew "autojump"                  # https://github.com/wting/autojump
 brew "bash"
 brew "bat"                       # https://github.com/sharkdp/bat
 brew "coreutils"
-brew "exa"                       # https://github.com/ogham/exa
 brew "fd"                        # https://github.com/sharkdp/fd
-brew "flake8"                    # https://flake8.pycqa.org/
-brew "fzf"                       # https://github.com/junegunn/fzf
 brew "gh"                        # https://github.com/cli/cli
 brew "git"
 brew "git-delta"                 # https://github.com/dandavison/delta
@@ -31,10 +29,8 @@ brew "sdkman-cli"                # https://sdkman.io/
 brew "shellcheck"                # https://github.com/koalaman/shellcheck
 brew "starship"                  # https://starship.rs/
 brew "tag-ag"                    # https://github.com/aykamko/tag
-brew "vim"
-brew "yamllint"                  # https://github.com/adrienverge/yamllint
-brew "yq"                        # https://github.com/mikefarah/yq
 brew "zsh"
+
 cask "adobe-acrobat-reader"
 cask "bartender"                 # https://www.macbartender.com/
 cask "bettertouchtool"           # https://folivora.ai
@@ -42,8 +38,6 @@ cask "docker"
 cask "font-jetbrains-mono"       # https://www.jetbrains.com/lp/mono/
 cask "font-fira-code-nerd-font"  # https://github.com/tonsky/FiraCode
 cask "google-chrome"
-cask "intellij-idea-ce"
-cask "moom"                      # https://manytricks.com/moom/
 cask "notion"                    # https://www.notion.so/es-es/desktop
 cask "postman"                   # https://www.postman.com/
 cask "raycast"                   # https://www.raycast.com/
@@ -51,4 +45,3 @@ cask "readdle-spark"             # https://sparkmailapp.com/
 cask "slack"
 cask "visual-studio-code"
 cask "warp"                      # https://www.warp.dev/
-cask "whatsapp"

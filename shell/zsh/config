@@ -1,0 +1,10 @@
+# vi: ft=zsh
+
+setopt localoptions nullglob
+for init in \
+  ~/.dotfiles/shell/init.sh \
+  ~/.dotfiles/shell/zsh/init.sh \
+  ~/.dotfiles/{macos,tools,editors}/*/init.sh
+do
+  source $init
+done

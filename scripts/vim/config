@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-${EDITOR:-nvim} "${XDG_CONFIG_HOME:-${HOME}/.config}/vim/config"

@@ -1,0 +1,68 @@
+# vi: ft=gitconfig
+
+[diff]
+	compactionHeuristic = true
+	indentHeuristic = true
+
+[core]
+	autocrlf = input
+	excludesFile = ~/.config/git/ignore
+
+[alias]
+	sw = switch
+	unstage = reset HEAD --
+	discard = checkout --
+	last = log -1 HEAD
+	df = diff
+	dt = difftool
+
+[difftool]
+	prompt = false
+
+[pull]
+	rebase = true
+
+[rebase]
+	autoStash = true
+
+[color "decorate"]
+	branch = blue reverse
+	remoteBranch = blue reverse
+	tag = magenta reverse
+	head = yellow bold
+
+[format]
+	pretty = %C(cyan)%h%C(reset) %C(auto)%D %s
+
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+
+[color "diff"]
+	meta = 11
+	frag = magenta bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+
+[color "status"]
+	added = green
+	changed = yellow italic
+	untracked = white dim
+
+[push]
+	default = current
+
+[init]
+	defaultBranch = main
+
+[include]
+  path = ~/.dotfiles/local/gitconfig
+
+# https://medium.com/@porteneuve/fix-conflicts-only-once-with-git-rerere-7d116b2cec67
+[rerere]
+  enabled = true
+  autoupdate = true

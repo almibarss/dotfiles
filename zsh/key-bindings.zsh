@@ -1,1 +1,0 @@
-bindkey '^X' autosuggest-execute

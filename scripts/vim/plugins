@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-${EDITOR:-nvim} \
-	"+au BufWritePost <buffer> PlugInstall" \
-	"${XDG_CONFIG_HOME:-${HOME}/.config}/vim/plugins.vim"
