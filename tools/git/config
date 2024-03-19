@@ -27,6 +27,8 @@
 
 [rebase]
 	autoStash = true
+  ; https://andrewlock.net/working-with-stacked-branches-in-git-is-easier-with-update-refs/#enabling-update-refs-by-default
+	updateRefs = true
 
 [color "decorate"]
 	branch = blue reverse
@@ -62,7 +64,7 @@
 [init]
 	defaultBranch = main
 
-# https://medium.com/@porteneuve/fix-conflicts-only-once-with-git-rerere-7d116b2cec67
+; https://medium.com/@porteneuve/fix-conflicts-only-once-with-git-rerere-7d116b2cec67
 [rerere]
   enabled = true
   autoupdate = true
