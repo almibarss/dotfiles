@@ -1,3 +1,5 @@
+unsetopt localoptions
+
 main() {
 	set_prompt
 	set_hist_options
