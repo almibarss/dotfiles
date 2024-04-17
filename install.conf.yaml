@@ -15,6 +15,7 @@
     ${XDG_CONFIG_HOME}/nvim: tools/editors/nvim
     ${XDG_CONFIG_HOME}/bat/config: tools/bat/config
     ${XDG_CONFIG_HOME}/ripgrep/config: tools/ripgrep/config
+    ${XDG_CONFIG_HOME}/lazygit/config.yml: tools/lazygit/config.yml
     ${XDG_CONFIG_HOME}/git/config: tools/git/config
     ${XDG_CONFIG_HOME}/git/ignore: tools/git/global-ignore
     ${XDG_CONFIG_HOME}/zsh/.zshrc: shell/zsh/config

@@ -1,0 +1,8 @@
+git:
+  paging:
+    colorArg: always
+    useConfig: true
+
+# https://github.com/jesseduffield/lazygit/issues/3064#issue-1938460094
+os:
+  openLink: open "$(echo "{{link}}" | sed 's/%2F/\//g')"
