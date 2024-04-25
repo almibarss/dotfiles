@@ -29,6 +29,7 @@
 	autoStash = true
   ; https://andrewlock.net/working-with-stacked-branches-in-git-is-easier-with-update-refs/#enabling-update-refs-by-default
 	updateRefs = true
+	autosquash = true
 
 [color "decorate"]
 	branch = blue reverse
