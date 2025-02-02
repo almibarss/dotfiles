@@ -23,19 +23,19 @@ return {
           {
             function() return require("noice").api.status.command.get() end,
             cond = function() return package.loaded["noice"] and require("noice").api.status.command.has() end,
-            color = function() return LazyVim.ui.fg("Statement") end,
+            -- color = function() return LazyVim.ui.fg("Statement") end,
           },
           -- stylua: ignore
           {
             function() return require("noice").api.status.mode.get() end,
             cond = function() return package.loaded["noice"] and require("noice").api.status.mode.has() end,
-            color = function() return LazyVim.ui.fg("Constant") end,
+            -- color = function() return LazyVim.ui.fg("Constant") end,
           },
           -- stylua: ignore
           {
             require("lazy.status").updates,
             cond = require("lazy.status").has_updates,
-            color = function() return LazyVim.ui.fg("Special") end,
+            -- color = function() return LazyVim.ui.fg("Special") end,
           },
           {
             "diff",

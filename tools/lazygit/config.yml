@@ -2,12 +2,23 @@ git:
   paging:
     colorArg: always
     pager: delta --dark --paging=never --syntax-theme base16-256 -s
+    externalDiffCommand: difft --color=always
 
 # https://github.com/jesseduffield/lazygit/issues/3064#issue-1938460094
 os:
   openLink: open "$(echo "{{link}}" | sed 's/%2F/\//g')"
 
 gui:
-  showIcons: true
+  nerdFontsVersion: '3'
   enlargedSideViewLocation: top
   animateExplosion: true
+
+customCommands:
+  - context: 'global'
+    key: 'E'
+    description: 'Empty Commit with Message'
+    command: 'git commit --allow-empty -m "{{index .PromptResponses 0}}"'
+    prompts:
+      - type: input
+        title: 'Enter empty commit message'
+        initialValue: ''

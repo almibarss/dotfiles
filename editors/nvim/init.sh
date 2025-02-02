@@ -1,1 +1,1 @@
-alias e=nvim
+alias e=neovide
